@@ -1,0 +1,449 @@
+<div class="main-content-container">
+  <div class="content-header">
+    <div class="content-heading">Tracking</div>
+    <div class="d-flex">
+      <div class="date-range-dropdown">
+        <ng-select bindLabel="name" bindValue="id" placeholder="City, State">
+        </ng-select>
+      </div>
+      <div class="fleet-dropdowm">
+        <input
+          #dateRange
+          type="text"
+          placeholder="Date"
+          class="form-control"
+          [options]="options"
+          (selected)="selectedDate($event)"
+          name="trackingDateRange"
+          daterangepicker
+        />
+      </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        <img
+          src="../../../assets/images/FuelIcon.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Location </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        <img
+          src="../../../assets/images/EVIcon.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Trip History </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="contact-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#contact"
+        type="button"
+        role="tab"
+        aria-controls="contact"
+        aria-selected="false"
+      >
+        <img
+          src="../../../assets/images/TrafficIcon.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Trip Summary </span>
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+    >
+      <div class="details-container">
+        <div class="row">
+          <!-- Map Section -->
+          <div class="col-12">
+            <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomLevel">
+              <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="markerIconUrl"></agm-marker>
+            </agm-map> -->
+            <agm-map
+              [latitude]="markers[0].lat"
+              [longitude]="markers[0].lng"
+              [zoom]="zoomLevel"
+            >
+              <agm-marker
+                *ngFor="let marker of markers"
+                [latitude]="marker.lat"
+                [longitude]="marker.lng"
+                [iconUrl]="marker.markerIconUrl"
+              >
+                <agm-info-window #infoWindow>
+                  <div class="marker-dialog">
+                    <div class="dialog-header">
+                      <div class="vin-header-val">
+                        <img
+                          src="../../../assets/images/vin_small.svg"
+                          alt=""
+                          class="options-icon"
+                        />D-1HGBH5GF4RETET54HMN
+                      </div>
+                      <div class="car-no-val">
+                        <img
+                          src="../../../assets/images/car_no.svg"
+                          alt=""
+                          class="options-icon"
+                        />LA-3MB1409
+                      </div>
+                    </div>
+                    <div class="dialog-body">
+                      <div>
+                        <img
+                          src="../../../assets/images/curr_speed.svg"
+                          alt=""
+                          class="options-icon"
+                          style="margin-right: 10px"
+                        />Current Speed - 40km/h
+                      </div>
+                      <div>
+                        <img
+                          src="../../../assets/images/curr_acc.svg"
+                          alt=""
+                          class="options-icon"
+                        />Current Acceleration - 40km/h
+                      </div>
+                      <div>
+                        <img
+                          src="../../../assets/images/curr_loc.svg"
+                          alt=""
+                          class="options-icon"
+                          style="margin-right: 10px"
+                        />
+                        Current Location - 19 Kilback Avenue, Marksborough NE
+                        34515-5022
+                      </div>
+                    </div>
+                    <div class="dialog-footer">
+                      <a href="" class="footer-btn">Trip History</a>
+                      <a href="" class="footer-btn">Trip Summary</a>
+                    </div>
+                  </div>
+                </agm-info-window></agm-marker
+              >
+            </agm-map>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+    >
+      <div class="trip-details-container">
+        <div class="vin-container">
+          <span class="vin-icon">VIN</span>
+          <span class="vin-details"> D-1HGBH5GF4RETET54HMN </span>
+        </div>
+        <div class="btn-tile-container mb-5">
+          <div class="btn-tile mr-40">
+            <span class="btn-tile-text card-tile-text"> Car Model </span>
+            <span class="btn-tile-no"> Toyota </span>
+          </div>
+          <div class="btn-tile mr-40">
+            <span class="btn-tile-text card-tile-text"> Car Make </span>
+            <span class="btn-tile-no"> Innova </span>
+          </div>
+          <div class="btn-tile">
+            <span class="btn-tile-text card-tile-text"> Total Trips </span>
+            <span class="btn-tile-no"> 25456 Miles </span>
+          </div>
+        </div>
+        <div class="accordion" id="tripDetails">
+          <div
+            *ngFor="let item of accordianData; let i = index"
+            class="accordion-item"
+          >
+            <h2 class="accordion-header" id="heading{{ item?.outer_id }}">
+              <button
+                class="accordion-button"
+                type="button"
+                [attr.data-bs-toggle]="'collapse'"
+                [attr.data-bs-target]="'#collapse' + item?.outer_id"
+                [attr.aria-expanded]="i === 0 ? 'true' : 'false'"
+                [attr.aria-controls]="'collapse' + item?.outer_id"
+              >
+                <div class="accordian-heading">
+                  <div class="month">{{ item?.month }}</div>
+                  <div class="trip-details">
+                    <span class="brand green">23 Trips</span>
+                    <span class="brand blue">347 Miles</span>
+                  </div>
+                </div>
+              </button>
+            </h2>
+            <div
+              id="collapse{{ item?.outer_id }}"
+              class="accordion-collapse collapse"
+              [class.show]="i === 0"
+              [attr.aria-labelledby]="'heading' + item?.outer_id"
+              [attr.data-bs-parent]="'#accordionExample'"
+            >
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="col-md-9 accord-heading">
+                    <div>Trip Id</div>
+                    <div style="margin-left: 15rem">Start Time</div>
+                    <div>End Time</div>
+                  </div>
+                </div>
+                <div class="accordion" id="innerAccordian">
+                  <div class="accordion-item" *ngFor="let trip of item?.tripsDetails || []; let i = index">
+                    <h2 class="accordion-header" id="innerHeading{{ trip?.inner_id }}">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        [attr.data-bs-toggle]="'collapse'"
+                        [attr.data-bs-target]="'#collapse' + trip?.inner_id"
+                        [attr.aria-expanded]="i === 0 ? 'true' : 'false'"
+                        [attr.aria-controls]="'collapse' + trip?.inner_id"
+                      >
+                        <div class="accordian-heading" style="width: 75%">
+                          <div class="trip-id">F2M_GSETRET4235435ETTRFSFG</div>
+                          <div class="trip-details">
+                            <span class="start-time">2:33 PM</span>
+                            <span class="end-time">2:44 PM</span>
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapse{{ trip?.inner_id }}"
+                      class="accordion-collapse collapse"
+                      [class.show]="i === 0"
+                      [attr.aria-labelledby]="'innerHeading' + trip?.inner_id"
+                      [attr.data-bs-parent]="'#innerAccordian'"
+                    >
+                      <div class="accordion-body">
+                        <div class="row">
+                          <div class="col-md-8">
+                            <div class="history-container d-flex">
+                              <div class="charge-details-container w-100">
+                                <div class="history-sub-heading border-0">
+                                  3921 Libby Street, Los Angeles CA, 90017
+                                </div>
+                                <div class="history-sub-heading brdr">
+                                  3921 Libby Street, Los Angeles CA, 90017
+                                </div>
+                                <div class="history-sub-details">
+                                  <div class="accordion" id="historyDetails1">
+                                    <div class="accordion-item">
+                                      <h2
+                                        class="accordion-header"
+                                        id="heading1"
+                                      >
+                                        <button
+                                          class="accordion-button p-0"
+                                          type="button"
+                                          data-bs-toggle="collapse"
+                                          data-bs-target="#collapse1"
+                                          aria-expanded="true"
+                                          aria-controls="collapse1"
+                                        >
+                                          <img
+                                            src="../../../assets/images/ICON_Curr_speed.svg"
+                                            alt=""
+                                            class="options-icon"
+                                            style="margin-right: 30px"
+                                          />
+                                          <img
+                                            src="../../../assets/images/ICON_Avg_fuel.svg"
+                                            alt=""
+                                            class="options-icon"
+                                            style="margin-right: 30px"
+                                          />
+                                          <img
+                                            src="../../../assets/images/ICON_Veh_status.svg"
+                                            alt=""
+                                            class="options-icon"
+                                            style="margin-right: 30px"
+                                          />
+                                          <img
+                                            src="../../../assets/images/ICON_Curr_odo.svg"
+                                            alt=""
+                                            class="options-icon"
+                                            style="margin-right: 30px"
+                                          />
+                                          <img
+                                            src="../../../assets/images/ICON_Trip_mil.svg"
+                                            alt=""
+                                            class="options-icon"
+                                            style="margin-right: 30px"
+                                          />
+                                        </button>
+                                      </h2>
+                                      <div
+                                        id="collapse1"
+                                        class="accordion-collapse collapse"
+                                        aria-labelledby="heading1"
+                                        data-bs-parent="#historyDetails1"
+                                      >
+                                        <div class="accordion-body p-0 mt-3">
+                                          <div class="row">
+                                            <div
+                                              class="col-md-4 d-flex justify-content-between text-nowrap mb-2"
+                                            >
+                                              <div>
+                                                <span class="histroy-label"
+                                                  ><img
+                                                    src="../../../assets/images/ICON_Curr_speed.svg"
+                                                    alt=""
+                                                    class="options-icon"
+                                                  />Current Speed :
+                                                </span>
+                                                <span class="history-value"
+                                                  >&nbsp;40km/hr</span
+                                                >
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="col-md-4 d-flex justify-content-between text-nowrap mb-2"
+                                            >
+                                              <div>
+                                                <span class="histroy-label"
+                                                  ><img
+                                                    src="../../../assets/images/ICON_Avg_fuel.svg"
+                                                    alt=""
+                                                    class="options-icon"
+                                                  />Average Fuel Level :
+                                                </span>
+                                                <span class="history-value"
+                                                  >&nbsp;50L</span
+                                                >
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="col-md-4 d-flex justify-content-between text-nowrap mb-2"
+                                            >
+                                              <div>
+                                                <span class="histroy-label"
+                                                  ><img
+                                                    src="../../../assets/images/ICON_Veh_status.svg"
+                                                    alt=""
+                                                    class="options-icon"
+                                                  />Vehicle Status :
+                                                </span>
+                                                <span class="history-value"
+                                                  >&nbsp;Good</span
+                                                >
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="col-md-4 d-flex justify-content-between text-nowrap"
+                                            >
+                                              <div>
+                                                <span class="histroy-label"
+                                                  ><img
+                                                    src="../../../assets/images/ICON_Curr_odo.svg"
+                                                    alt=""
+                                                    class="options-icon"
+                                                  />Current Odometer :
+                                                </span>
+                                                <span class="history-value"
+                                                  >&nbsp;254</span
+                                                >
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="col-md-6 d-flex justify-content-between text-nowrap"
+                                            >
+                                              <div>
+                                                <span class="histroy-label"
+                                                  ><img
+                                                    src="../../../assets/images/ICON_Trip_mil.svg"
+                                                    alt=""
+                                                    class="options-icon"
+                                                  />Trip Mileage so far :
+                                                </span>
+                                                <span class="history-value"
+                                                  >&nbsp;524km/L</span
+                                                >
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="map-details">
+                              <agm-map
+                                [latitude]="markers[0].lat"
+                                [longitude]="markers[0].lng"
+                                [zoom]="zoomLevel"
+                                style="height: 180px !important"
+                              >
+                                <agm-marker
+                                  *ngFor="let marker of markers"
+                                  [latitude]="marker.lat"
+                                  [longitude]="marker.lng"
+                                  [iconUrl]="markerIconUrl"
+                                ></agm-marker>
+                              </agm-map>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="contact"
+      role="tabpanel"
+      aria-labelledby="contact-tab"
+    >
+      Trip Summary
+    </div>
+  </div>
+</div>

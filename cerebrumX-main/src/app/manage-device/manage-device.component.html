@@ -1,0 +1,147 @@
+<div class="outer_container">
+  <div class="header_elements">
+    <div class="row">
+      <div class="col-8 centered_items">
+        <img
+          src="../../assets/images/VVDN LOGO 1.svg"
+          alt=""
+          class="logo_image"
+        />
+      </div>
+      <div class="col-4 right_items">
+        <div class="flex_items">
+          <div>
+            <img src="../../assets/images/notification_icon.svg" alt="" />
+          </div>
+          <div class="header_text">Hello, Eric!</div>
+          <div>
+            <img src="../../assets/images/hello_icon.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub_header_container">
+    <div class="sub_header_elements">
+      <div class="sub_header_left">
+        <div class="flex_items">
+          <div class="user_icon_container">
+            <img src="../../assets/images/user_icon.svg" alt="" />
+          </div>
+          <div class="sub_header_text">Dongles</div>
+        </div>
+        <div class="search-box">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search Dongle id "
+            class="search_box_input"
+          />
+        </div>
+      </div>
+      <div class="sub_header_right">
+        <div class="sub_header_right_icons">
+          <div class="ready_to_ship_icon">
+            <div class="icon_container">
+              <img
+                src="../../assets/images/ready_to_ship_icon.svg"
+                alt=""
+                srcset=""
+              />
+              <span class="tooltip1">Ready to ship</span>
+            </div>
+          </div>
+
+          <div class="bulk_upload_icon">
+            <div class="icon_container">
+              <img src="../../assets/images/bulk_upload_icon.svg" alt="" />
+              <span class="tooltip2">Bulk action</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="add_dongle" (click)="toggleDropdown2($event)">
+            + Add Dongle
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table_container">
+    <!-- your-component.component.html -->
+
+    <table class="table custom-table">
+      <thead>
+        <tr>
+          <th>
+            <input
+              type="checkbox"
+              [(ngModel)]="allChecked"
+              (ngModelChange)="toggleAllCheckboxes()"
+              class="checkbox_class"
+            />
+          </th>
+          <th *ngFor="let header of headers; let isLast = last">
+            {{ header }}
+            <img
+              *ngIf="isLast"
+              src="../../assets/images/Expand_right_light.svg"
+              alt="Arrow Down"
+              class="arrow-icon filter_button"
+              (click)="toggleDropdown($event)"
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; let i = index">
+          <td>
+            <input
+              type="checkbox"
+              [(ngModel)]="item.checked"
+              (ngModelChange)="checkIfAllSelected()"
+              class="checkbox_class"
+            />
+          </td>
+          <td>{{ item.deviceId }}</td>
+          <td>{{ item.dongleNumber }}</td>
+          <td>{{ item.deviceId }}</td>
+          <td>{{ item.manufacturedDate }}</td>
+          <td>{{ item.shipmentDate || "N/A" }}</td>
+          <td>N/A</td>
+          <!-- No activationDate in the provided data -->
+          <td>N/A</td>
+          <!-- No country in the provided data -->
+          <td>
+            <span class="status_column">{{ item.connectedStatus }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="dropdownMenu" class="dropdown-menu2">
+  <ul>
+    <li (click)="selectOption('Active')">Active</li>
+    <li (click)="selectOption('Ready to Ship')">Ready to Ship</li>
+    <li (click)="selectOption('Shipped')">Shipped</li>
+    <li (click)="selectOption('VIN enrolled')">VIN enrolled</li>
+  </ul>
+</div>
+
+<div id="dropdownMenu2" class="dropdown-menu">
+  <ul>
+    <li (click)="selectOption('Single dongle upload')">
+      <span><img src="../../assets/images/share.svg" alt="" /></span> Single
+      dongle upload
+    </li>
+    <li (click)="selectOption('Bulk upload')">
+      <span><img src="../../assets/images/share.svg" alt="" /></span> Bulk
+      upload
+    </li>
+  </ul>
+</div>

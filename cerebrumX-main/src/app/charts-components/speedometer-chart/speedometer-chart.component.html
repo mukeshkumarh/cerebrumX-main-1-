@@ -1,0 +1,69 @@
+<div class="card-container">
+  <div id="chart">
+    <div>
+      <span class="direction"> N </span>
+      <span class="clock-hand">
+        <img
+          id="clock-hand-angle"
+          [ngStyle]="{ transform: angle}"
+          src="../../assets/images/ClockHand.svg"
+        />
+      </span>
+
+      <span class="rpm-details"  *ngIf="chartType == 'speed'">
+        RPM <br />
+        X 1000
+      </span>
+      <span class="rpm-details"  *ngIf="chartType == 'fuel'">
+        MPH 
+      </span>
+      <ngx-charts-gauge
+        [view]="[475, 475]"
+        [scheme]="colorScheme"
+        [results]="single"
+        [showText]="false"
+        [min]="minValue"
+        [max]="maxValue"
+        [bigSegments]="8"
+        [smallSegments]="5"
+      >
+      </ngx-charts-gauge>
+    </div>
+    <div class="speed-icon">
+      <img
+        *ngIf="chartType == 'speed'"
+        src="../../assets/images/SpeedBar.svg"
+        class="progress-icon"
+      />
+      <img
+        *ngIf="chartType == 'fuel'"
+        src="../../assets/images/Fuel.svg"
+        class="progress-icon"
+      />
+    </div>
+    <div *ngIf="chartType == 'speed'" class="speed-progress-bar">
+      <div class="progress-start">C</div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 0}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 1}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 2}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 3}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 4}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 5}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 6}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 7}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 8}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 9}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 10}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 11}"></div>
+      <div class="progress-end">H</div>
+    </div>
+    <div *ngIf="chartType == 'fuel'" class="fuel-progress-bar">
+      <div class="progress-start">E</div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 0}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 1}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 2}"></div>
+      <div class="progress-strip" [ngClass]="{'active' : progressMeter > 3}"></div>
+      <div class="progress-end">F</div>
+    </div>
+  </div>
+</div>

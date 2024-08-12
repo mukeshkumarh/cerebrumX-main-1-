@@ -1,0 +1,33 @@
+<div class="chart-container">
+  <apx-chart
+    #chart
+    [series]="ChartOptions.series"
+    [chart]="ChartOptions.chart"
+    [labels]="ChartOptions.labels"
+    [colors]="ChartOptions.colors"
+    [plotOptions]="ChartOptions.plotOptions"
+    [dataLabels]="ChartOptions.dataLabels"
+    [legend]="ChartOptions.legend"
+    [responsive]="ChartOptions.responsive"
+    [stroke]="ChartOptions.stroke"
+  ></apx-chart>
+  <div #customCircle class="custom-circle" *ngIf="chartData.shadow"></div>
+</div>
+
+<div class="custom-legend pb-4">
+  <div
+    *ngFor="let item of chartData.categories; let i = index"
+    class="legend-item"
+  >
+    <div class="legend-text">
+      <span
+        class="legend-marker"
+        [ngStyle]="{ 'background-color': chartData.colors[i] }"
+      ></span>
+      {{ item }}
+    </div>
+    <div class="legend-value">
+      {{ chartData.data[i] }}
+    </div>
+  </div>
+</div>

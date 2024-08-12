@@ -1,0 +1,18 @@
+<div class="main-container-bar">
+  <div
+    *ngFor="let item of chartData.data; let i = index"
+    class="progress-bar-item"
+  >
+    <div class="flex-space-between pt-3">
+      <div class="sub-text">{{ chartData.labels[i] }}</div>
+      <div class="main-text">{{ chartData.data[i] }}</div>
+    </div>
+    <div class="progress-bar-container">
+      <div
+        class="progress-bar"
+        [style.width.%]="calculateWidth(chartData.data[i])"
+        [style.backgroundColor]="chartData.colors[i]"
+      ></div>
+    </div>
+  </div>
+</div>

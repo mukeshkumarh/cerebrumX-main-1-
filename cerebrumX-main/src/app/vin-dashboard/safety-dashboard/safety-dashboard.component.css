@@ -1,0 +1,29 @@
+.main-content-container {
+  background-color: #f6f8fa;
+  padding: 40px;
+  .tab-pane {
+    padding: 40px;
+  }
+  .nav-link {
+    padding-right: 90px !important;
+    color: #102c53;
+    font-weight: 500;
+    border-left: 0px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0px;
+    width: 200px;
+    display: flex;
+    margin-top: 0px;
+    background: transparent !important;
+    padding: 0px 20px !important;
+    border-top: none;
+  }
+  .nav-link.active {
+    color: #fa751a !important;
+    border-color: none !important;
+    border-bottom: 50px solid #fff;
+  }
+}
+.chart-card{
+  height: 95%;
+}

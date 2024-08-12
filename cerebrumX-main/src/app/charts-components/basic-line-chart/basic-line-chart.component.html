@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="chartData.percentage">
+  <div>
+    <span class="total-number">{{chartData.totalNumber}}</span>
+    <span class="total-percentage">
+      <span class="total-percentage-1"> <img
+        src="../../../assets/images/DataUp.svg"
+        class="chart-card-header-logo"
+      /> {{chartData.percentage}}</span>
+      <span class="total-percentage-2">From Last Month</span>
+    </span>
+  </div>
+</div>
+
+<div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [grid]="chartOptions.grid"
+      [stroke]="chartOptions.stroke"
+      [tooltip]="chartOptions.tooltip"
+      [yaxis]="chartOptions.yaxis"
+      [fill]="chartOptions.fill"
+      [colors]="chartOptions.colors"
+      [markers]="chartOptions.markers"
+    ></apx-chart>
+  </div>
+  

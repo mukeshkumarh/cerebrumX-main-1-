@@ -1,0 +1,320 @@
+.outer_container {
+  font-family: Inter;
+}
+
+.centered_items {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_items {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.right_items {
+  display: flex;
+  justify-content: right;
+}
+
+.header_elements {
+  padding: 3% 4%;
+}
+
+.logo_image {
+  padding-left: 40%;
+}
+
+.sub_header_elements {
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+}
+
+.sub_header_left {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.header_text {
+  color: #161616;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.sub_header_text {
+  color: #191635;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.user_icon_container {
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  /* padding: 4% 10%; */
+  background: #d9d9d9;
+  border-radius: 50%;
+}
+
+::ng-deep .search_box_input::placeholder {
+  color: #4f5867 !important;
+  opacity: 1;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.search_box_input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cdcfd4;
+  border-radius: 7px;
+  font-size: 14px;
+  background-color: white;
+  background-image: url("../../assets/images/search_icon.svg");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  height: 38px;
+}
+
+.sub_header_right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sub_header_right_icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon_container {
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #ebedf2;
+  border-radius: 3px;
+}
+
+.add_dongle {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 150px;
+  height: 40px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #f47e20;
+  border-radius: 6px;
+}
+
+.sub_header_container {
+  padding-top: 7%;
+}
+
+.custom-table {
+  border-collapse: separate;
+  border-spacing: 0 2px;
+  table-layout: fixed;
+  max-width: 100%;
+  width: 100%;
+}
+
+.custom-table th {
+  background-color: #ebebeb;
+  font-weight: 500;
+  font-size: 14px;
+  color: #161616;
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.custom-table thead tr {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.custom-table th:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.custom-table th:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.custom-table td {
+  background-color: #e7f3fa;
+  font-weight: 500;
+  font-size: 12px;
+  color: #737b7b;
+  padding: 18px 8px;
+  vertical-align: middle;
+  border-top: 2px solid white;
+}
+
+.custom-table td:nth-child(2) {
+  font-weight: 500;
+  font-size: 12px;
+  color: #252525;
+}
+
+.custom-table tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none !important;
+}
+
+.table_container {
+  padding: 0 1%;
+}
+
+.custom-table th {
+  word-wrap: break-word; /* For older browsers */
+  overflow-wrap: break-word; /* For modern browsers */
+  white-space: normal;
+}
+
+.custom-table td {
+  word-wrap: break-word; /* For older browsers */
+  overflow-wrap: break-word; /* For modern browsers */
+  white-space: normal;
+}
+.custom-table td:nth-child(9) {
+  font-weight: 400;
+  font-size: 10px;
+  color: #60b960;
+}
+
+.status_column {
+  padding: 7% 14%;
+  background-color: #eff8ef;
+  border-radius: 6px;
+}
+/* Hide the default checkbox appearance */
+.checkbox_class {
+  -webkit-appearance: none; /* Remove default appearance in WebKit browsers */
+  -moz-appearance: none; /* Remove default appearance in Firefox */
+  appearance: none; /* Remove default appearance in modern browsers */
+  width: 16px; /* Adjust width */
+  height: 16px; /* Adjust height */
+  border-radius: 1.5px; /* Border radius */
+  border: 1px solid black; /* Black solid border */
+  background-color: #fff; /* White background color of the checkbox */
+  cursor: pointer; /* Pointer cursor on hover */
+  position: relative; /* Position relative to place the checkmark */
+}
+
+/* Style for the checked state */
+.checkbox_class:checked {
+  background-color: #fff; /* White background color when checked */
+  border: 1px solid black; /* Black border when checked */
+}
+
+/* Custom checkmark style */
+.checkbox_class:checked::after {
+  content: ""; /* Empty content for the checkmark */
+  position: absolute; /* Position absolutely within the checkbox */
+  left: 4px; /* Position from the left */
+  top: 1.5px; /* Position from the top */
+  width: 5px; /* Width of the checkmark */
+  height: 9px; /* Height of the checkmark */
+  border: solid black; /* Black checkmark color */
+  border-width: 0 1px 1px 0; /* Checkmark border width */
+  transform: rotate(45deg); /* Rotate to form a checkmark */
+}
+
+.icon_container img {
+  transition: filter 0.3s ease; /* Smooth transition for the color change */
+}
+
+/* Change color on hover */
+.icon_container:hover img {
+  filter: hue-rotate(186deg) saturate(9) brightness(1.6);
+}
+
+/* Change color on click (using a class toggle) */
+.icon_container.clicked img {
+  filter: hue-rotate(184deg) saturate(9) brightness(1.55);
+}
+
+.dropdown-menu,
+.dropdown-menu2 {
+  display: none; /* Initially hidden */
+  position: absolute;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 10px;
+  color: #161616;
+  font-weight: 400;
+}
+
+.dropdown-menu ul,
+.dropdown-menu2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li,
+.dropdown-menu2 li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover,
+.dropdown-menu2 li:hover {
+  background-color: #e6e6e6;
+}
+
+.ready_to_ship_icon,
+.bulk_upload_icon {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip1,
+.tooltip2 {
+  visibility: hidden;
+  width: max-content; 
+  background-color: #494949;
+  color: #f1f1f1;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 10px; /* Adjust font-size as needed */
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the container */
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ready_to_ship_icon:hover .tooltip1 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.bulk_upload_icon:hover .tooltip2 {
+  visibility: visible;
+  opacity: 1;
+}

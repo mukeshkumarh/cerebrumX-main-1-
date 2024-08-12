@@ -1,0 +1,116 @@
+<div class="title">VEHICLE SUMMARY</div>
+<div class="row">
+  <div class="col-md-3">
+    <!-- Content for the third column -->
+    <div class="vehicle-card hover-green">
+      <div class="vehicle-card-header">
+        <div class="cardTitle">Total Enrolled Vehicles</div>
+      </div>
+      <div class="vehicle-card-body">
+        <div class="row">
+          <div class="col-4 valueStyle align-items-end">670</div>
+          <div class="col-8">
+            <div id="chart">
+              <apx-chart
+                [series]="enrolledVehiclechartOptions.series"
+                [chart]="enrolledVehiclechartOptions.chart"
+                [plotOptions]="enrolledVehiclechartOptions.plotOptions"
+                [labels]="enrolledVehiclechartOptions.labels"
+                [fill]="enrolledVehiclechartOptions.fill"
+                [stroke]="enrolledVehiclechartOptions.stroke"
+                [colors]="enrolledVehiclechartOptions.colors"
+                [annotations]="enrolledVehiclechartOptions.annotations"
+              ></apx-chart>
+              <!-- (mouseover)="onChartMouseEnter($event, chart,enrolledVehiclechartOptions,'enrolledVehiclechartOptions')"
+                (mouseleave)="onChartMouseLeave($event, chart,enrolledVehiclechartOptions,'enrolledVehiclechartOptions')" -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 ">
+    <!-- Content for the third column -->
+    <div class="vehicle-card hover-orange">
+      <div class="vehicle-card-header">
+        <div class="cardTitle">Total Enrolled Vehicles</div>
+      </div>
+      <div class="vehicle-card-body">
+        <div class="row">
+          <div class="col-4 valueStyle align-items-end">670</div>
+          <div class="col-8">
+            <div id="chart">
+              <apx-chart
+                [series]="activatedVehiclechartOptions.series"
+                [chart]="activatedVehiclechartOptions.chart"
+                [plotOptions]="activatedVehiclechartOptions.plotOptions"
+                [labels]="activatedVehiclechartOptions.labels"
+                [fill]="activatedVehiclechartOptions.fill"
+                [stroke]="activatedVehiclechartOptions.stroke"
+                [colors]="activatedVehiclechartOptions.colors"
+                [annotations]="activatedVehiclechartOptions.annotations"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <!-- Content for the third column -->
+    <div class="vehicle-card hover-pink">
+      <div class="vehicle-card-header">
+        <div class="cardTitle">Total Enrolled Vehicles</div>
+      </div>
+      <div class="vehicle-card-body">
+        <div class="row">
+          <div class="col-4 valueStyle align-items-end">670</div>
+          <div class="col-8">
+            <div id="chart">
+              <apx-chart
+                [series]="deactivatedVehiclechartOptions.series"
+                [chart]="deactivatedVehiclechartOptions.chart"
+                [plotOptions]="deactivatedVehiclechartOptions.plotOptions"
+                [labels]="deactivatedVehiclechartOptions.labels"
+                [fill]="deactivatedVehiclechartOptions.fill"
+                [stroke]="deactivatedVehiclechartOptions.stroke"
+                [colors]="deactivatedVehiclechartOptions.colors"
+                [annotations]="deactivatedVehiclechartOptions.annotations"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <!-- Content for the third column -->
+    <div class="vehicle-card hover-red">
+      <div class="vehicle-card-header">
+        <div class="cardTitle">Total Enrolled Vehicles</div>
+      </div>
+      <div class="vehicle-card-body">
+        <div class="row">
+          <div class="col-4 valueStyle align-items-end">670</div>
+          <div class="col-8">
+            <div id="chart">
+              <apx-chart
+                [series]="failedRequestschartOptions.series"
+                [chart]="failedRequestschartOptions.chart"
+                [plotOptions]="failedRequestschartOptions.plotOptions"
+                [labels]="failedRequestschartOptions.labels"
+                [fill]="failedRequestschartOptions.fill"
+                [stroke]="failedRequestschartOptions.stroke"
+                [colors]="failedRequestschartOptions.colors"
+                [annotations]="failedRequestschartOptions.annotations"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

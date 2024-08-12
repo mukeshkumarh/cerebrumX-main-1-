@@ -1,0 +1,149 @@
+.card-container {
+    position: relative;
+    margin: 80px;
+    width: 294px;
+  }
+  .clock-hand {
+    z-index: 5;
+    img {
+      position: absolute;
+      top: 58px;
+      left: 116px;
+      transform-origin: bottom center;
+      transform: rotate(0deg);
+      width: 50px;
+      height: 22%;
+    }
+  }
+  .clock-center {
+    position: absolute;
+    top: 35%;
+    left: 148px;
+    width: 14px;
+    height: 14px;
+    background-color: black;
+    border-radius: 16px;
+  }
+  .speed-value {
+    overflow: hidden;
+    position: absolute;
+    transform-origin: 0% 100%;
+  }
+  .speed-value:first-child {
+    top: 55%;
+    left: 15%;
+  }
+  
+  .speed-value:nth-child(2) {
+    top: 39%;
+    left: 9%;
+  }
+  
+  .speed-value:nth-child(3) {
+    top: 20%;
+    left: 10%;
+  
+  }
+  .speed-value:nth-child(4) {
+    top: 3%;
+    left: 23%;
+  }
+  .speed-value:nth-child(5) {
+    top: -4%;
+    left: 48%;
+  }
+  .speed-value:nth-child(6) {
+    top: 3%;
+    left: 70%;
+  }
+  .speed-value:nth-child(7) {
+    top: 20%;
+    left: 86%;
+  }
+  .speed-value:nth-child(8) {
+    top: 39%;
+    left: 84%;
+  }
+  .speed-value:nth-child(9) {
+    top: 55%;
+    left: 78%;
+  }
+  .progress-icon{
+    height: 24px;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .clock-container {
+    position: relative;
+    margin: 200px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    transform: rotate(-83deg);
+  }
+  
+  .clock-item {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .clock-item:hover {
+    background-color: #2980b9;
+  }
+  .direction {
+    top: 54px;
+    position: absolute;
+    left: 48%;
+  }
+  .rpm-details {
+    position: absolute;
+    top: 43%;
+    left: 45%;
+    text-align: center;
+  }
+  .speed-icon{
+    left: 145px;
+    position: absolute;
+    bottom: 40px;
+  }
+  
+  .fuel-progress-bar {
+    display: flex;
+    top: 332px;
+    position: absolute;
+    left: 90px;
+    .progress-strip {
+      margin: 0 2px;
+      height: 18px;
+      width: 41px;
+      background-color: #4680FF;
+    }
+    .progress-start {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    .progress-end {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
+  

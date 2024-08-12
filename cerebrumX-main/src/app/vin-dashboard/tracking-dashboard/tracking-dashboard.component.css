@@ -1,0 +1,130 @@
+.main-content-container {
+  background-color: #f6f8fa;
+  padding: 40px;
+  .tab-pane {
+    padding: 40px;
+  }
+  .nav-link {
+    padding-right: 90px !important;
+    color: #102c53;
+    font-weight: 500;
+    border-left: 0px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0px;
+    width: 200px;
+    display: flex;
+    margin-top: 0px;
+    background: transparent !important;
+    padding: 0px 20px !important;
+    border-top: none;
+  }
+  .nav-link.active {
+    color: #fa751a !important;
+    border-color: none !important;
+    border-bottom: 50px solid #fff;
+  }
+}
+
+agm-map {
+  height: 600px;
+}
+
+.vin-header-val {
+  font-size: 13px;
+  color: #fa751a;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.car-no-val {
+  font-size: 13px;
+  color: #2ca87f;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.marker-dialog {
+  padding: 12px 15px;
+  max-width: 300px;
+}
+
+.dialog-header {
+  border-bottom: 1px solid #e7eaee;
+  padding-bottom: 5px;
+}
+.vin-container {
+  margin-bottom: 20px;
+}
+.vin-icon {
+  font-size: 13px;
+  border: 1px solid #fff;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #fa751a;
+  color: #fff;
+  font-weight: 600;
+}
+
+.vin-details {
+  color: #fa751a;
+  font-weight: 600;
+}
+.accordian-heading {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  align-items: center;
+}
+.month {
+  font-weight: 700;
+}
+.brand {
+  height: 35px;
+  display: inline-block;
+  width: 110px;
+  border-radius: 20px;
+  padding: 7px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+.green {
+  background: #eff8f3;
+  border: 1px solid #2ca87f;
+  padding: 7px 29px !important;
+}
+.blue {
+  background: #f4f7ff;
+  border: 1px solid #4680ff;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #fff;
+}
+
+.dialog-body {
+  font-size: 13px;
+  color: #989ea5;
+  padding-top: 15px;
+  border-bottom: 1px solid #e7eaee;
+  padding-bottom: 10px;
+  div {
+    margin-bottom: 10px;
+  }
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 16px;
+  a {
+    color: #fa751a;
+    text-decoration: none;
+  }
+}
+.accord-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.start-time{
+  margin-right: 12rem;
+}

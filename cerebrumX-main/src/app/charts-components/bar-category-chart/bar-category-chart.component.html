@@ -1,0 +1,27 @@
+<div class="bar-chart-container">
+  <div class="bar-chart-label-section">
+
+    <div class="bar-chart-label-section-val" *ngFor="let label of this.chartData.labels;let i = index">
+      {{label}} <span *ngIf="this.chartData.icons"><img src={{icon[i]}} alt=""></span>
+    </div>
+    <!-- <img src="../../../assets/images/UITires.svg" alt=""> -->
+  </div>
+  
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [dataLabels]="chartOptions.dataLabels"
+      [stroke]="chartOptions.stroke"
+      [colors]="chartOptions.colors"
+      [title]="chartOptions.title"
+      [subtitle]="chartOptions.subtitle"
+      [plotOptions]="chartOptions.plotOptions"
+      [yaxis]="chartOptions.yaxis"
+      [xaxis]="chartOptions.xaxis"
+      [legend]="chartOptions.legend"
+      [tooltip]="chartOptions.tooltip"
+      [grid]="chartOptions.grid"
+    ></apx-chart>
+  </div>
+</div>

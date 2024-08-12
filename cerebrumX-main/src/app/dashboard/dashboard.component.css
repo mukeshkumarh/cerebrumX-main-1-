@@ -1,0 +1,103 @@
+.dashboard-container {
+  padding: 40px;
+  background-color: #f5f7fc;
+}
+.chart-section {
+  .section-heading {
+    font-size: 28px;
+    margin: 20px 0px;
+  }
+}
+.premium-seaction {
+  min-height: 300px !important;
+}
+
+.btn-tile {
+  height: 100px;
+  background-color: #fff;
+  border-radius: 12px;
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+  display: grid;
+}
+.btn-tile:hover {
+  color: #fff;
+}
+.hover-green:hover {
+  background-color: #2ca87f;
+  cursor: pointer;
+}
+.hover-orange:hover {
+  background-color: #fa751a;
+  cursor: pointer;
+}
+.hover-blue:hover {
+  background-color: #4680ff;
+  cursor: pointer;
+}
+.tile-section {
+  margin-bottom: 35px;
+}
+.section-heading {
+  font-size: 28px !important;
+  font-weight: 500 !important;
+}
+.premium-section {
+  min-height: 300px;
+  .chart-card {
+    min-height: 350px;
+  }
+}
+.premium-card-body {
+  padding: 0 20px;
+
+  .col-md-4 {
+    padding-top: 40px;
+    border-right: 1px solid #e7eaee;
+  }
+}
+.chart-card.card-with-tile {
+    height: 385px;
+    min-height: 385px;
+}
+.mb-35{
+    margin-bottom: 35px;
+}
+.chart-card {
+  background-color: #fff;
+  min-height: 520px;
+  border-radius: 12px;
+  .chart-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e7eaee;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 600;
+    .chart-card-sub-header {
+      font-size: 16px;
+    }
+  }
+  .chart-card-body {
+    padding: 20px;
+  }
+}
+
+.chart-card-header-logo {
+  padding-right: 3%;
+  margin-bottom: 0.5rem;
+}
+
+.chart-card-header-link {
+  color: #4680ff;
+  float: right;
+  margin-top: 0.5rem;
+
+  font-size: 16px;
+}
+.chart-card-header-past-months {
+  float: right;
+  margin-top: 0.5rem;
+  color: #6c757e;
+  font-size: 16px;
+}

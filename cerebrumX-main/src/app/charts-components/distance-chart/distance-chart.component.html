@@ -1,0 +1,39 @@
+<div class="card-container">
+  <div id="chart">
+    <div>
+      <ngx-charts-gauge
+        [view]="[200, 200]"
+        [scheme]="colorScheme"
+        [results]="single"
+        [showText]="false"
+        [min]="minValue"
+        [max]="maxValue"
+        [showAxis]="false"
+      >
+      </ngx-charts-gauge>
+      <span class="border"></span>
+      <div class="distance-icon">
+        <img
+          src="../../assets/images/Distance.svg"
+          class="chart-card-header-logo"
+        />
+      </div>
+      <span class="dist-details"> 4687<br />KM </span>
+    </div>
+    <div class="battery-icon">
+      <img
+        src="../../assets/images/Battery.svg"
+        class="progress-icon"
+      />
+    </div>
+    <div class="battery-progress-bar">
+      <div class="progress-start">0</div>
+      <div
+        *ngFor="let item of [].constructor(50); let i = index"
+        class="progress-strip"
+        [ngClass]="{ active: progressMeter > i }"
+      ></div>
+      <div class="progress-end">75%</div>
+    </div>
+  </div>
+</div>

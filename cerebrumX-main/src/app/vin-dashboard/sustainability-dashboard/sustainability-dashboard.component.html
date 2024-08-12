@@ -1,0 +1,284 @@
+<div class="main-content-container">
+  <div class="content-header">
+    <div class="content-heading">Sustainability</div>
+    <div class="d-flex">
+      <div class="date-range-dropdown">
+        <ng-select bindLabel="name" bindValue="id" placeholder="Date">
+        </ng-select>
+      </div>
+      <div class="fleet-dropdowm">
+        <ng-select bindLabel="name" bindValue="id" placeholder="Fleet">
+        </ng-select>
+      </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        <img
+          src="../../../assets/images/FuelIconBlue.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Fuel </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        <img
+          src="../../../assets/images/EVIcon.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> EV </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="contact-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#contact"
+        type="button"
+        role="tab"
+        aria-controls="contact"
+        aria-selected="false"
+      >
+        <img
+          src="../../../assets/images/TrafficIcon.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Traffic </span>
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+    >
+      <div class="btn-tile-container">
+        <div class="btn-tile mr-40">
+          <span class="btn-tile-text card-tile-text"> Total Miles Driven </span>
+          <span class="btn-tile-no"> 21,456 </span>
+        </div>
+        <div class="btn-tile mr-40">
+          <span class="btn-tile-text card-tile-text"> Total Fuel Cost </span>
+          <span class="btn-tile-no"> 5,145 </span>
+        </div>
+        <div class="btn-tile">
+          <span class="btn-tile-text card-tile-text">
+            Average Fuel Cost Per Mile
+          </span>
+          <span class="btn-tile-no"> 254 </span>
+        </div>
+      </div>
+      <div class="details-container">
+        <div class="row">
+          <!-- chart Section -->
+          <div class="col-7">
+            <div class="row">
+              <div class="col-12">
+                <div class="section-heading mb-4">VEHICLE FUEL COST</div>
+              </div>
+              <div class="col-12">
+                <div class="chart-container">
+                  <div class="chart-card-body">
+                    <app-dist-column-chart
+                      [chartData]="chartData.fuelConsumedData"
+                    ></app-dist-column-chart>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 pt-4">
+                <div class="section-heading">AVERAGE FUEL COST PER MILE</div>
+              </div>
+              <div class="col-12">
+                <div class="chart-container">
+                  <div class="chart-card-body">
+                    <app-basic-line-chart
+                      [chartData]="chartData.totalMilesDrivenData"
+                    ></app-basic-line-chart>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Feed Section -->
+          <div class="col-5">
+            <div class="row">
+              <div class="col-12">
+                <div class="section-heading mb-4">INSIGHTS</div>
+              </div>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-blue">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-orange">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-green">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-blue">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-orange">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-green">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Driver Scorecard -->
+        <div class="row">
+          <div class="col-12">
+            <div class="chart-section">
+              <div class="section-heading">FLEET HEALTH</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tables Section -->
+        <div class="row pt-4">
+          <div class="col-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/FleetMileage.svg"
+                  class="chart-card-header-logo"
+                />Fuel Mileage(mpg)
+                <span class="chart-card-header-past-months">Last 5 Months</span>
+              </div>
+              <div class="month-dropdown">
+                <div class="fuel-dropdown">
+                  <ng-select
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder="Select Month"
+                  >
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="chart-card-body">
+                <app-basic-line-chart
+                  [chartData]="chartData.fuelMileageData"
+                ></app-basic-line-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/FuelConsumed.svg"
+                  class="chart-card-header-logo1"
+                />Fuel Consumption(gal)
+                <span class="chart-card-header-past-months">Last 5 Months</span>
+              </div>
+              <div class="month-dropdown">
+                <div class="fuel-dropdown">
+                  <ng-select
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder="Select Month"
+                  >
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="chart-card-body">
+                <app-dist-column-chart
+                  [chartData]="chartData.fuelConsumptionData"
+                ></app-dist-column-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/ByBodyClass.svg"
+                  class="chart-card-header-logo"
+                />Total Idling Duration
+                <span class="chart-card-header-past-months">Last 5 Months</span>
+              </div>
+
+              <div class="">
+                <app-line-column-chart
+                  [chartData]="chartData.idlingDurationData"
+                ></app-line-column-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=" fade show active"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+    >
+      <!-- EV Code -->
+
+      <app-ev-section></app-ev-section>
+
+      <!-- EV Code -->
+    </div>
+    <div
+      class="tab-pane fade"
+      id="contact"
+      role="tabpanel"
+      aria-labelledby="contact-tab"
+    >
+      Traffic
+    </div>
+  </div>
+</div>

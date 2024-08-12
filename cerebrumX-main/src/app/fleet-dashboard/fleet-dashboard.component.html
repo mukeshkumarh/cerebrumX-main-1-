@@ -1,0 +1,205 @@
+<div class="main-content-container">
+  <div class="flex-space-between">
+    <div>
+      <div class="main-heading">
+        Dashboard <span class="lighter-text">Overview</span>
+      </div>
+      <div class="consumer-dropdown">
+        <ng-select
+          bindLabel="name"
+          bindValue="id"
+          placeholder="Consumer"
+          class="dropdown-select"
+        >
+        </ng-select>
+      </div>
+    </div>
+    <div class="grid-center">
+      <div class="fleet-dropdown">
+        <ng-select
+          bindLabel="name"
+          bindValue="id"
+          placeholder="Fleet"
+          class="dropdown-select-orange"
+        >
+        </ng-select>
+      </div>
+    </div>
+  </div>
+  <div class="pt-4">
+    <div class="main-text2">FLEET SUMMARY</div>
+    <div class="sub-text">
+      <img
+        src="../../assets/images/update-july.svg"
+        alt=""
+        class="history-image"
+      />
+      update 30 july
+    </div>
+  </div>
+  <div class="pt-2">
+    <div class="content-section">
+      <div class="flex-space-between border-bottom pb-2 inner-section">
+        <div>
+          <div class="main-text2">1,000</div>
+          <div class="sub-text">Total Enrolled Vehicles</div>
+        </div>
+        <div>
+          <div class="download-dropdown">
+            <div class="download_padding">
+              <div (click)="exportToExcel()">
+                <img
+                  src="../../assets/images/download_icon.svg"
+                  alt=""
+                  class="download_button"
+                />
+              </div>
+            </div>
+
+            <div class="fleet-dropdowm" (click)="openCard()">
+              <ng-select
+                bindLabel="name"
+                bindValue="id"
+                placeholder="Current month"
+                class="current-month-dropdown"
+                
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-6 border-right grid-center">
+          <div #chartContainer class="chart_image_extract">
+            <div class="chart-container-left">
+              <div class="main-container-bar">
+                <div
+                  *ngFor="
+                    let item of chartData.vehicleEnrolledData.data;
+                    let i = index
+                  "
+                  class="progress-bar-item"
+                >
+                  <div class="flex-space-between pt-3">
+                    <div class="sub-text">
+                      {{ chartData.vehicleEnrolledData.labels[i] }}
+                    </div>
+                    <div class="main-text">
+                      {{ chartData.vehicleEnrolledData.data[i] }}
+                    </div>
+                  </div>
+                  <div class="progress-bar-container">
+                    <div
+                      class="progress-bar"
+                      [style.width.%]="
+                        calculateWidth(chartData.vehicleEnrolledData.data[i])
+                      "
+                      [style.backgroundColor]="
+                        chartData.vehicleEnrolledData.colors[i]
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="pt-4">
+            <div class="flex-space-between">
+              <div class="pt-4 padding-left-2">
+                <div class="pt-10">
+                  <div class="active-section sub-text">GM</div>
+                </div>
+
+                <div class="pt-10">
+                  <div class="inactive-section sub-text">Toyota</div>
+                </div>
+                <div class="pt-10">
+                  <div class="inactive-section sub-text">Ford</div>
+                </div>
+                <div class="pt-10">
+                  <div class="inactive-section sub-text">Stellantis</div>
+                </div>
+                <div class="pt-10">
+                  <div class="inactive-section sub-text">Tesla</div>
+                </div>
+              </div>
+              <div class="padding-right-2 pt-4">
+                <div class="chart-container">
+                  <apx-chart
+                    #chart
+                    [series]="ChartOptions.series"
+                    [chart]="ChartOptions.chart"
+                    [labels]="ChartOptions.labels"
+                    [colors]="ChartOptions.colors"
+                    [plotOptions]="ChartOptions.plotOptions"
+                    [dataLabels]="ChartOptions.dataLabels"
+                    [legend]="ChartOptions.legend"
+                    [responsive]="ChartOptions.responsive"
+                    [stroke]="ChartOptions.stroke"
+                  ></apx-chart>
+                  <div
+                    #customCircle
+                    class="custom-donut-circle"
+                    *ngIf="chartData.tireBreakUpData.shadow"
+                  ></div>
+                </div>
+                <div class="custom-donut-legend pb-4">
+                  <div
+                    *ngFor="
+                      let item of chartData.tireBreakUpData.categories;
+                      let i = index
+                    "
+                    class="custom-donut-legend-item"
+                  >
+                    <div class="custom-donut-legend-text">
+                      <span
+                        class="custom-donut-legend-marker"
+                        [ngStyle]="{
+                          'background-color':
+                            chartData.tireBreakUpData.colors[i]
+                        }"
+                      ></span>
+                      {{ item }}
+                    </div>
+                    <div class="custom-donut-legend-value">
+                      {{ chartData.tireBreakUpData.data[i] }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Card -->
+<div class="modal-overlay" *ngIf="isCardOpen">
+  <div class="modal-card">
+    <button (click)="closeCard()" class="close-button">X</button>
+    <div class=" row">
+      <div class="col-3 option-column">
+        <div>
+          <div class="option"  [class.selected]="selectedOption === 'yesterday'" (click)="handleOption('yesterday')">Yesterday</div>
+          <div class="option"  [class.selected]="selectedOption === 'current-week'"(click)="handleOption('current-week')">Current Week</div>
+          <div class="option"  [class.selected]="selectedOption === 'current-month'"(click)="handleOption('current-month')">Current Month</div>
+          <div class="option" [class.selected]="selectedOption === 'prev-month'"(click)="handleOption('prev-month')">Previous Month</div>
+          <div class="option"  [class.selected]="selectedOption === 'custom-range'"(click)="handleOption('custom-range')">Custom Range</div>
+        </div>
+      </div>
+      
+      <div class="col-9 ">
+        
+        <!-- Display calendar only if 'custom-range' is selected -->
+        <app-calendar *ngIf="selectedOption === 'custom-range'"></app-calendar>
+      </div>
+    </div>
+  </div>
+</div>

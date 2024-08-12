@@ -1,0 +1,107 @@
+.main-content-container {
+  background-color: #f6f8fa;
+  padding: 40px;
+  .tab-pane {
+    padding: 40px;
+  }
+  .nav-link {
+    padding-right: 90px !important;
+    color: #102c53;
+    font-weight: 500;
+    border-left: 0px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0px;
+    width: 200px;
+    display: flex;
+    margin-top: 0px;
+    background: transparent !important;
+    padding: 0px 20px !important;
+    border-top: none;
+  }
+  .nav-link.active {
+    color: #fa751a !important;
+    border-color: none !important;
+    border-bottom: 50px solid #fff;
+  }
+}
+
+.btn-tile-blue {
+  border: 1px solid #4680ff;
+  background: #4681ff1f;
+}
+
+.btn-tile-orange {
+  border: 1px solid #fa751a;
+  background: #fa751a1f;
+}
+
+.btn-tile-green {
+  border: 1px solid #2ca87f;
+  background: #2ca87f1f;
+}
+
+.tire-btn-tile-text {
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.tire-image {
+  position: absolute;
+  left: 142px;
+  bottom: 162px;
+  height: 160px;
+}
+
+.btn-tile-text {
+  color: grey;
+}
+
+.chart-card-header {
+  font-weight: 700;
+}
+
+.options-icon-circle {
+  margin-top: -5px;
+  width: 15px;
+}
+
+.circle-icon {
+  padding-right: 6px;
+}
+
+.top-legend-box {
+  padding: 8px;
+  border: 2px solid #e7eaee;
+  border-radius: 8px;
+}
+
+.legend-tile {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.legend-tile-end {
+  padding-top: 2rem;
+}
+
+.chart-card-green {
+  border: 2px solid #40be76;
+  background-color: #40be7715;
+}
+.chart-card-header-green {
+  padding: 16px 20px;
+  border-bottom: 1px dashed #40be76;
+  color: #000000;
+  font-size: 16px;
+}
+
+.emission-image {
+  float: right;
+  margin-top: -12px;
+}
+
+.icon-image {
+  height: 50px;
+}

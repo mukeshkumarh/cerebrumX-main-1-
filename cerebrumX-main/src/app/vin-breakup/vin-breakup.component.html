@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="primary">VIN Breakup</h3>
+        <div class="legend d-flex justify-content-start my-3">
+          <div class="legend-item d-flex align-items-center mr-4">
+            <span class="legend-color ineligible"></span> Ineligible VIN's
+          </div>
+          <div class="legend-item d-flex align-items-center mr-4">
+            <span class="legend-color eligible"></span> Eligible VIN's
+          </div>
+          <div class="legend-item d-flex align-items-center">
+            <span class="legend-color in-progress"></span> In-progress VIN's
+          </div>
+        </div>
+  
+        <div class="main-container-bar">
+          <div *ngFor="let item of chartData.vehicleEnrolledData.data; let i = index" class="progress-bar-item">
+            <div class="d-flex justify-content-between align-items-center pt-3">
+              <div class="sub-text">
+                {{ chartData.vehicleEnrolledData.labels[i] }}
+              </div>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar ineligible" 
+                   [ngClass]="getClass('ineligible')" 
+                   [style.width]="calculateWidth(item.ineligible, getTotal(i))"></div>
+              <div class="progress-bar eligible" 
+                   [ngClass]="getClass('eligible')" 
+                   [style.width]="calculateWidth(item.eligible, getTotal(i))"></div>
+              <div class="progress-bar in-progress" 
+                   [ngClass]="getClass('in-progress')" 
+                   [style.width]="calculateWidth(item.inProgress, getTotal(i))"></div>
+            </div>
+            <div class="text-values d-flex justify-content-between">
+              <div class="text-value text-ineligible">{{ item.ineligible.toLocaleString() }}</div>
+              <div class="text-value text-eligible">{{ item.eligible.toLocaleString() }}</div>
+              <div class="text-value text-in-progress">{{ item.inProgress.toLocaleString() }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,213 @@
+<div class="main-content-container">
+  <div class="flex-space-between">
+    <div>
+      <div class="main-heading">TCO BY VIN</div>
+      <div class="pt-3">
+        <span class="vin_container"
+          ><span class="content-sub-text">VIN</span></span
+        >
+        <span class="content-sub-text2"> D - 1HGBH41JXMN109186 </span>
+      </div>
+    </div>
+    <div class="grid-center">
+      <div class="sub-text">TCO search / TCO for VIN</div>
+    </div>
+  </div>
+
+  <div class="pt-2">
+    <div class="content-section">
+      <div class="flex-space-between">
+        <div>
+          <span class="img_main_container">
+            <span class="img_container"
+              ><img
+                src="../../assets/images/vehicle_summary_car.svg"
+                alt=""
+                class="img_icon"
+            /></span>
+          </span>
+
+          <span class="section-heading">Vehicle Summary</span>
+        </div>
+        <div class="mt-1">
+          <span class="blue_button"
+            ><span class="pr-2"
+              ><img
+                src="../../assets/images/Map_Pin.svg"
+                alt=""
+                class="map_pin_icon"
+            /></span>
+            <span class="sub-text text_color_white">New york</span></span
+          >
+        </div>
+      </div>
+
+      <div class="row-flex pt-3">
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Make</div>
+            <div class="main-text">Toyota</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Model</div>
+            <div class="main-text">Tacoma</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Trim</div>
+            <div class="main-text">LT</div>
+          </div>
+        </div>
+
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Year</div>
+            <div class="main-text">2022</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Class</div>
+            <div class="main-text">Pickup</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Body Type</div>
+            <div class="main-text">Truck</div>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="field-section">
+            <div class="sub-text">Fuel Type</div>
+            <div class="main-text">Gasoline</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-4">
+    <div class="content-section">
+      <div>
+        <div class="row">
+          <div class="col-6">
+            <span class="img_main_container">
+              <span class="img_container"
+                ><img
+                  src="../../assets/images/tco_vin_icon.svg"
+                  alt=""
+                  class="img_icon"
+              /></span>
+            </span>
+
+            <span class="section-heading">TCO for VIN</span>
+            <app-half-donut-chart
+              [chartData]="chartData.ComparisonData"
+            ></app-half-donut-chart>
+            <div class="chart-legend">
+              <div><span class="active-legend-item"> All </span></div>
+              <div><span class="legend-item"> 2022 </span></div>
+              <div><span class="legend-item"> 2023 </span></div>
+              <div><span class="legend-item"> 2024 </span></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="flex-space-between border-bottom2">
+              <div>
+                <span class="img_main_container">
+                  <span class="img_container"
+                    ><img
+                      src="../../assets/images/annual_projection.svg"
+                      alt=""
+                      class="img_icon"
+                  /></span>
+                </span>
+
+                <span class="section-heading">Annual TCO Projection</span>
+              </div>
+              <div class="section-heading-blue">$6797.29</div>
+            </div>
+            <div>
+              <app-basic-column-chart
+                [chartData]="chartData.annualProjectionData"
+              ></app-basic-column-chart>
+            </div>
+          </div>
+
+          <div class="row pt-6">
+            <div class="col-4">
+              <div class="flex-space-between border-bottom2">
+                <div>
+                  <span class="img_main_container">
+                    <span class="img_container"
+                      ><img
+                        src="../../assets/images/fuel_cost_icon.svg"
+                        alt=""
+                        class="img_icon"
+                    /></span>
+                  </span>
+
+                  <span class="section-heading">Fuel cost</span>
+                </div>
+                <div class="section-heading-blue">$6797.29</div>
+              </div>
+              <div>
+                <app-basic-column-chart
+                  [chartData]="chartData.fuelCostData"
+                ></app-basic-column-chart>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="flex-space-between border-bottom2">
+                <div>
+                  <span class="img_main_container">
+                    <span class="img_container"
+                      ><img
+                        src="../../assets/images/dep_cost_icon.svg"
+                        alt=""
+                        class="img_icon"
+                    /></span>
+                  </span>
+
+                  <span class="section-heading">Depreciation cost</span>
+                </div>
+                <div class="section-heading-blue">$6797.29</div>
+              </div>
+              <div>
+                <app-basic-column-chart
+                  [chartData]="chartData.depreciationCostData"
+                ></app-basic-column-chart>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="flex-space-between border-bottom2">
+                <div>
+                  <span class="img_main_container">
+                    <span class="img_container"
+                      ><img
+                        src="../../assets/images/maintainence_icon.svg"
+                        alt=""
+                        class="img_icon"
+                    /></span>
+                  </span>
+
+                  <span class="section-heading">Maintainence cost</span>
+                </div>
+                <div class="section-heading-blue">$6797.29</div>
+              </div>
+              <div>
+                <app-basic-column-chart
+                  [chartData]="chartData.maintainenceCostData"
+                ></app-basic-column-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

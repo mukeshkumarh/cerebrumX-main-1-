@@ -1,0 +1,554 @@
+<div class="main-content-container">
+  <div class="content-header">
+    <div class="content-heading">Safety</div>
+    <div class="d-flex">
+      <div class="date-range-dropdown">
+        <ng-select bindLabel="name" bindValue="id"> </ng-select>
+      </div>
+      <div class="fleet-dropdowm">
+        <ng-select bindLabel="name" bindValue="id"> </ng-select>
+      </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        <img
+          src="../../../assets/images/Driver.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Driver </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        <img
+          src="../../../assets/images/Vehicle.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Vehicle </span>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="contact-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#contact"
+        type="button"
+        role="tab"
+        aria-controls="contact"
+        aria-selected="false"
+      >
+        <img
+          src="../../../assets/images/Ecosystem.svg"
+          alt=""
+          class="options-icon"
+          style="margin-top: 15px"
+        />
+        <span style="margin-top: 15px"> Ecosystem </span>
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+    >
+      <div class="btn-tile-container">
+        <div class="btn-tile mr-40">
+          <span class="btn-tile-text"> Total Drivers </span>
+          <span class="btn-tile-no"> 50 </span>
+        </div>
+        <div class="btn-tile mr-40">
+          <span class="btn-tile-text"> Risky Drivers (need coaching) </span>
+          <span class="btn-tile-no"> 4 </span>
+        </div>
+        <div class="btn-tile">
+          <span class="btn-tile-text"> Safest Drivers </span>
+          <span class="btn-tile-no"> 7 </span>
+        </div>
+      </div>
+      <div class="details-container">
+        <div class="row">
+          <!-- chart Section -->
+          <div class="col-7">
+            <div class="row">
+              <div class="col-12">
+                <div class="section-heading mb-4">DRIVER SCORE TREND</div>
+              </div>
+              <div class="col-12">
+                <div class="chart-container">
+                  <div class="chart-card-body">
+                    <app-multiple-line-chart
+                      [chartData]="chartData.driverScoreTrend"
+                    ></app-multiple-line-chart>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 pt-4">
+                <div class="section-heading">HARSH EVENT TRENDS</div>
+              </div>
+              <div class="col-12">
+                <div class="chart-container">
+                  <div class="chart-card-body">
+                    <app-multiple-line-chart
+                      [chartData]="chartData.harshEventTrend"
+                    ></app-multiple-line-chart>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Feed Section -->
+          <div class="col-5">
+            <div class="row">
+              <div class="col-12">
+                <div class="section-heading mb-4">INSIGHTS</div>
+              </div>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-blue">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-orange">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-green">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-blue">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-orange">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+            <div class="btn-tile mr-40 insights btn-tile-green">
+              <span class="btn-tile-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aliquam, corrupti minus.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Driver Scorecard -->
+        <div class="row">
+          <div class="col-12">
+            <div class="chart-section">
+              <div class="section-heading">DRIVER SAFETY</div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="chart-card">
+                    <div class="chart-card-header">
+                      <img
+                        src="../../assets/images/DriverScorecard.svg"
+                        class="chart-card-header-logo"
+                      />Driver Scorecard
+                    </div>
+                    <div class="chart-card-body">
+                      <app-donut-chart
+                        [chartData]="chartData.driverScoreCardData"
+                      ></app-donut-chart>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="chart-card">
+                    <div class="chart-card-header">
+                      <img
+                        src="../../assets/images/Seatbelt.svg"
+                        class="chart-card-header-logo"
+                      />Top 5 Seatbelt Violations
+                      <span class="chart-card-header-link">View More</span>
+                    </div>
+                    <div class="chart-card-body">
+                      <app-dist-column-chart
+                        [chartData]="chartData.driverInsightsData"
+                      ></app-dist-column-chart>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="chart-card">
+                    <div class="chart-card-header">
+                      <img
+                        src="../../assets/images/AggressiveDriver.svg"
+                        class="chart-card-header-logo"
+                      />Top 5 Aggresive Drivers
+                      <span class="chart-card-header-link">View More</span>
+                    </div>
+                    <div class="chart-card-body">
+                      <app-basic-column-chart
+                        [chartData]="chartData.aggresiveDriversData"
+                      ></app-basic-column-chart>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tables Section -->
+        <div class="row">
+          <div class="col-4">
+            <div class="table-section">
+              <div class="table-title">
+                <div class="table-title-text">
+                  Groups By Highest Score
+                  <div class="sub-text">last 90 days</div>
+                </div>
+                <span class="btn-link table-details"> View Details </span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">GROUPS</th>
+                    <th scope="col">COACHABLE SCORE</th>
+                    <th scope="col">TREND</th>
+                    <th scope="col">COACHABLE EVENTS</th>
+                    <th scope="col">TRENDS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="table-section">
+              <div class="table-title">
+                <div class="table-title-text">
+                  Groups By Highest Score
+                  <div class="sub-text">last 90 days</div>
+                </div>
+                <span class="btn-link table-details"> View Details </span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">GROUPS</th>
+                    <th scope="col">COACHABLE SCORE</th>
+                    <th scope="col">TREND</th>
+                    <th scope="col">COACHABLE EVENTS</th>
+                    <th scope="col">TRENDS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="table-section">
+              <div class="table-title">
+                <div class="table-title-text">
+                  Groups By Highest Score
+                  <div class="sub-text">last 90 days</div>
+                </div>
+                <span class="btn-link table-details"> View Details </span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">GROUPS</th>
+                    <th scope="col">COACHABLE SCORE</th>
+                    <th scope="col">TREND</th>
+                    <th scope="col">COACHABLE EVENTS</th>
+                    <th scope="col">TRENDS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SD Delivery Plus</th>
+                    <td>7,384</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-down-solid.svg"
+                        alt=""
+                        class="drop-icon"
+                      />11%
+                    </td>
+                    <td>1,456</td>
+                    <td>
+                      <img
+                        src="../../../assets/images/sort-up-solid.svg"
+                        alt=""
+                        class="up-icon"
+                      />9%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+    >
+      Profile
+    </div>
+    <div
+      class="tab-pane fade"
+      id="contact"
+      role="tabpanel"
+      aria-labelledby="contact-tab"
+    >
+      Contact
+    </div>
+  </div>
+</div>

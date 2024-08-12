@@ -1,0 +1,167 @@
+.card-container {
+  /* width: 280px; */
+}
+#chart {
+  position: relative;
+}
+.clock-hand {
+  z-index: 5;
+  position: absolute;
+  top: 131px;
+  left: 163px;
+  img {
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    width: 64px;
+    height: 90px;
+  }
+}
+.clock-center {
+  position: absolute;
+  top: 207px;
+  left: 207px;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 16px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.clock-container {
+  position: relative;
+  margin: 200px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  transform: rotate(-83deg);
+}
+
+.clock-item {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #3498db;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clock-item:hover {
+  background-color: #2980b9;
+}
+.direction {
+  top: 114px;
+  position: absolute;
+  left: 48%;
+  font-size: 16px;
+  font-weight: 700;
+}
+.rpm-details {
+  position: absolute;
+  top: 235px;
+  left: 188px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+}
+.speed-icon {
+  left: 180px;
+  position: absolute;
+  top: 296px;
+}
+.progress-icon {
+  height: 24px;
+}
+
+.speed-progress-bar {
+  display: flex;
+  top: 342px;
+  position: absolute;
+  left: 90px;
+  .progress-strip {
+    margin: 0 2px;
+    height: 18px;
+    width: 9px;
+    background-color: #fa751a;
+  }
+  .progress-start {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .progress-end {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+.distance-icon {
+  position: absolute;
+  top: 63px;
+  left: 65px;
+  img {
+    height: 35px;
+  }
+}
+
+.border {
+  position: absolute;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  top: 10px;
+  left: 10px;
+}
+
+.dist-details {
+  position: absolute;
+  top: 100px;
+  left: 76px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.battery-progress-bar {
+  display: flex;
+  position: absolute;
+  left: -8px;
+  top: 263px;
+  .progress-strip {
+    margin: 0 1px;
+    height: 18px;
+    width: 1.5px;
+    background-color: #e7eaee;
+  }
+  .progress-strip.active{
+    background-color: #2ca67e;
+  }
+  .progress-start {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .progress-end {
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 700;
+
+  }
+}
+.battery-icon {
+  left: 92px;
+  position: absolute;
+  top: 217px;
+}

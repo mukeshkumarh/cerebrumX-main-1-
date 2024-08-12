@@ -1,0 +1,69 @@
+<button class="btn btn-primary" (click)="openModalRef(bulk_template)">
+  Open Modal
+</button>
+
+<ng-template #bulk_template>
+  <div class="modal-container">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Bulk Eligibility Status</h4>
+      <button
+        type="button"
+        class="btn-close close pull-right"
+        (click)="modalRef.hide()"
+        aria-label="Close"
+      >
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-4 pie-chart-section">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="chart-heading ">By Make</div>
+            </div>
+          </div>
+          <div id="chart">
+            <apx-chart
+              [series]="pieChartOptions.series"
+              [chart]="pieChartOptions.chart"
+              [colors]="pieChartOptions.colors"
+              [plotOptions]="pieChartOptions.plotOptions"
+              [fill]="pieChartOptions.fill"
+              [labels]="pieChartOptions.labels"
+              [legend]="pieChartOptions.legend"
+              [responsive]="pieChartOptions.responsive"
+            ></apx-chart>
+          </div>
+        </div>
+        <div class="col-md-8 stacked-chart-section">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="chart-heading">VIN Breakup</div>
+            </div>
+          </div>
+          <div id="stackedChart">
+            <apx-chart
+              [series]="stackedChartOptions.series"
+              [chart]="stackedChartOptions.chart"
+              [colors]="stackedChartOptions.colors"
+              [dataLabels]="stackedChartOptions.dataLabels"
+              [plotOptions]="stackedChartOptions.plotOptions"
+              [xaxis]="stackedChartOptions.xaxis"
+              [yaxis]="stackedChartOptions.yaxis"
+              [stroke]="stackedChartOptions.stroke"
+              [grid]="stackedChartOptions.grid"
+              [fill]="stackedChartOptions.fill"
+              [title]="stackedChartOptions.title"
+              [tooltip]="stackedChartOptions.tooltip"
+              [legend]="stackedChartOptions.legend"
+            ></apx-chart>
+          </div>
+        </div>
+        <div class="col-md-12 text-center">
+          <button class="btn btn-download">Download Detailed Summary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

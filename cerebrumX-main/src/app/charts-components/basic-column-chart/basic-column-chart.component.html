@@ -1,0 +1,57 @@
+<div class="row rowWidth">
+  <div class="col"><span class="chartTop"> {{legendDataLabel[0] }}</span></div>
+  <div class="col"><span class="chartTop">{{legendDataLabel[1] }}</span></div>
+  <div class="col"><span class="chartTop">{{legendDataLabel[2] }}</span></div>
+  <div class="col"><span class="chartTop">{{legendDataLabel[3] }}</span></div>
+  <div class="col"><span class="chartTop">{{legendDataLabel[4] }}</span></div>
+</div>
+<div id="chart">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [dataLabels]="chartOptions.dataLabels"
+    [plotOptions]="chartOptions.plotOptions"
+    [yaxis]="chartOptions.yaxis"
+    [legend]="chartOptions.legend"
+    [fill]="chartOptions.fill"
+    [stroke]="chartOptions.stroke"
+    [tooltip]="chartOptions.tooltip"
+    [xaxis]="chartOptions.xaxis"
+    [colors]="chartOptions.colors"
+    [grid]="chartOptions.grid"
+  ></apx-chart>
+</div>
+<!-- <div class="chartLegend">
+  <div class="row">
+    <div class="col  legendItem">
+      <img
+        src="../../../assets/images/HarshBraking.svg"
+        alt=""
+        class="LegendIcon"
+      />Harsh Braking
+    </div>
+    <div class="col legendItem">
+      <img
+        src="../../../assets/images/HarshAcceleration.svg"
+        alt=""
+        class="LegendIcon"
+      />Harsh Acceleration
+    </div>
+  </div>
+  <div class="row">
+    <div class="col  legendItem">
+      <img
+        src="../../../assets/images/HarshCornering.svg"
+        alt=""
+        class="LegendIcon"
+      />Harsh Cornering
+    </div>
+    <div class="col  legendItem">
+      <img
+        src="../../../assets/images/Overspeeding.svg"
+        alt=""
+        class="LegendIcon"
+      />OverSpeeding
+    </div>
+  </div>
+</div> -->

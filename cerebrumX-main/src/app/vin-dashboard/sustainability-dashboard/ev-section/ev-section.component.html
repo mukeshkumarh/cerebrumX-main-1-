@@ -1,0 +1,484 @@
+<div class="row">
+  <div class="col-first">
+    <div class="evside-panel">
+      <div class="evside-panel-options">
+        <div
+          class="evoptions"
+          (click)="section = 'overview'"
+          [ngClass]="{ active: section == 'overview' }"
+        >
+          <img
+            src="../../../assets/images/Overview.svg"
+            alt=""
+            class="options-icon"
+            [ngClass]="{ activeoption: section == 'overview' }"
+          />
+        </div>
+        <div
+          class="evoptions"
+          (click)="section = 'summary'"
+          [ngClass]="{ active: section == 'summary' }"
+        >
+          <img
+            src="../../../assets/images/Summary.svg"
+            alt=""
+            class="options-icon"
+            [ngClass]="{ activeoption: section == 'summary' }"
+          />
+        </div>
+        <div
+          class="evoptions"
+          (click)="section = 'history'"
+          [ngClass]="{ active: section == 'history' }"
+        >
+          <img
+            src="../../../assets/images/History.svg"
+            alt=""
+            class="options-icon"
+            [ngClass]="{ activeoption: section == 'history' }"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-second">
+    <ng-container *ngIf="section == 'overview'">
+      <!-- Overview Section -->
+      <div class="section-title">
+        <div class="section-title-text">OVERVIEW</div>
+      </div>
+      <div class="secondsection">
+        <div class="row">
+          <div class="col colborder">
+            <div>
+              <div class="col-title">Breakup of Electronic Vehicles</div>
+              <div class="col-chart">
+                <div class="chart-card-body">
+                  <app-donut-chart
+                    [chartData]="chartData.ElectronicVehicleData"
+                  ></app-donut-chart>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="col-title">Breakup of Savings</div>
+              <div class="col-chart">
+                <div class="chart-card-body">
+                  <app-bar-category-chart
+                    [chartData]="chartData.savingsData"
+                  ></app-bar-category-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <img
+              src="../../../../assets/images/EVCar.svg"
+              alt=""
+              class="EVCarImage"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview Section -->
+    </ng-container>
+    <ng-container *ngIf="section == 'summary'">
+      <!-- Summary Section -->
+
+      <div class="section-title">
+        <div class="section-title-text">SUMMARY</div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="col-title pt-4">Public vs Home Charging</div>
+          <div class="summary-chart">
+            <div class="chart-body-summary">
+              <app-bar-category-chart
+                [chartData]="chartData.chargingData"
+              ></app-bar-category-chart>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-title pt-4">Cost Comparison</div>
+          <div class="summary-chart">
+            <div class="chart-body-summary">
+              <app-half-donut-chart
+                [chartData]="chartData.ComparisonData"
+              ></app-half-donut-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-title pt-2">Charging Cost Trend On A Monthly Basis</div>
+      <div class="pt-3 smallnavcontainer pb-3">
+        <div class="smallnav">
+          <span
+            class="smallnavtab"
+            [class.smallnavactive]="activeTab === 0"
+            (click)="changeTab(0)"
+            >Charging Cost</span
+          >
+          <span
+            class="smallnavtab"
+            [class.smallnavactive]="activeTab === 1"
+            (click)="changeTab(1)"
+            >Energy Used</span
+          >
+          <span
+            class="smallnavtab"
+            [class.smallnavactive]="activeTab === 2"
+            (click)="changeTab(2)"
+            >No. Of Sessions</span
+          >
+        </div>
+      </div>
+
+      <div class="charging-cost-chart">
+        <app-dist-column-chart
+          [chartData]="chartData.fuelConsumedData"
+        ></app-dist-column-chart>
+      </div>
+
+      <div class="col-title pt-2">Live EV Map</div>
+      <div class="mapcontainer">
+        <agm-map
+          [latitude]="markers[0].lat"
+          [longitude]="markers[0].lng"
+          [zoom]="zoomLevel"
+        >
+          <agm-marker
+            *ngFor="let marker of markers"
+            [latitude]="marker.lat"
+            [longitude]="marker.lng"
+            [iconUrl]="markerIconUrl"
+          ></agm-marker>
+        </agm-map>
+      </div>
+      <!-- Summary Section -->
+    </ng-container>
+    <ng-container *ngIf="section == 'history'">
+      <div class="section-title d-flex justify-content-between">
+        <div class="section-title-text">CHARGING HISTORY</div>
+        <div class="date-filter">
+          <button
+            class="days btn nav-btn"
+            (click)="filter = 'weekly'"
+            [ngClass]="{ active: filter == 'weekly' }"
+          >
+            Weekly
+          </button>
+          <button
+            class="days btn nav-btn"
+            (click)="filter = 'monthly'"
+            [ngClass]="{ active: filter == 'monthly' }"
+          >
+            Monthly
+          </button>
+          <button
+            class="days btn nav-btn"
+            (click)="filter = 'yearly'"
+            [ngClass]="{ active: filter == 'yearly' }"
+          >
+            Yearly
+          </button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 30px">
+        <div class="col-7">
+          <div class="history-container d-flex">
+            <div class="date-container">
+              <div class="date-value">16</div>
+              <div class="month-value">MAR</div>
+
+            </div>
+            <div class="charge-details-container w-100">
+              <div class="history-heading">
+                Kutch Turnpike, Los Angeles, CA, 90017
+              </div>
+              <div class="history-sub-heading">Charging Time - 1.20 hours</div>
+              <div class="history-sub-details">
+                <div class="accordion" id="historyDetails1">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading1">
+                      <button
+                        class="accordion-button p-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse1"
+                        aria-expanded="true"
+                        aria-controls="collapse1"
+                      >
+                        <img
+                          src="../../../assets/images/battery_charging.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                        <img
+                          src="../../../assets/images/ev_station.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                        <img
+                          src="../../../assets/images/schedule_FILL.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                      </button>
+                    </h2>
+                    <div
+                      id="collapse1"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="heading1"
+                      data-bs-parent="#historyDetails1"
+                    >
+                      <div class="accordion-body p-0">
+                        <div class="d-flex justify-content-between mb-2">
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/battery_charging.svg"
+                                alt=""
+                                class="options-icon"
+                              />State of Charge :</span
+                            >
+                            <span class="history-value">&nbsp;67%</span>
+                          </div>
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/ev_station.svg"
+                                alt=""
+                                class="options-icon"
+                              />Type of Charging :</span
+                            >
+                            <span class="history-value">&nbsp;Public</span>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/schedule_FILL.svg"
+                                alt=""
+                                class="options-icon"
+                              />Date and Time of Charging :
+                            </span>
+                            <span class="history-value">&nbsp;07/03/2024</span>
+                          </div>
+                          <div>
+                            <div class="history-time">22:05</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="history-container d-flex">
+            <div class="date-container">
+              <div class="date-value">14</div>
+              <div class="month-value">MAR</div>
+            </div>
+            <div class="charge-details-container w-100">
+              <div class="history-heading">
+                Kutch Turnpike, Los Angeles, CA, 90017
+              </div>
+              <div class="history-sub-heading">Charging Time - 1.20 hours</div>
+              <div class="history-sub-details">
+                <div class="accordion" id="historyDetails2">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading2">
+                      <button
+                        class="accordion-button p-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse2"
+                        aria-expanded="true"
+                        aria-controls="collapse2"
+                      >
+                        <img
+                          src="../../../assets/images/battery_charging.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                        <img
+                          src="../../../assets/images/ev_station.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                        <img
+                          src="../../../assets/images/schedule_FILL.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                      </button>
+                    </h2>
+                    <div
+                      id="collapse2"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="heading2"
+                      data-bs-parent="#historyDetails2"
+                    >
+                      <div class="accordion-body p-0">
+                        <div class="d-flex justify-content-between mb-2">
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/battery_charging.svg"
+                                alt=""
+                                class="options-icon"
+                              />State of Charge :</span
+                            >
+                            <span class="history-value">&nbsp;67%</span>
+                          </div>
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/ev_station.svg"
+                                alt=""
+                                class="options-icon"
+                              />Type of Charging :</span
+                            >
+                            <span class="history-value">&nbsp;Public</span>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/schedule_FILL.svg"
+                                alt=""
+                                class="options-icon"
+                              />Date and Time of Charging :
+                            </span>
+                            <span class="history-value">&nbsp;07/03/2024</span>
+                          </div>
+                          <div>
+                            <div class="history-time">22:05</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="history-container d-flex">
+            <div class="date-container">
+              <div class="date-value">13</div>
+              <div class="month-value">MAR</div>
+            </div>
+            <div class="charge-details-container w-100">
+              <div class="history-heading">
+                Kutch Turnpike, Los Angeles, CA, 90017
+              </div>
+              <div class="history-sub-heading">Charging Time - 1.20 hours</div>
+              <div class="history-sub-details">
+                <div class="accordion" id="historyDetails3">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading3">
+                      <button
+                        class="accordion-button p-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse3"
+                        aria-expanded="true"
+                        aria-controls="collapse3"
+                      >
+                        <img
+                          src="../../../assets/images/battery_charging.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                        <img
+                          src="../../../assets/images/ev_station.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                        <img
+                          src="../../../assets/images/schedule_FILL.svg"
+                          alt=""
+                          class="options-icon"
+                        />
+                      </button>
+                    </h2>
+                    <div
+                      id="collapse3"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="heading3"
+                      data-bs-parent="#historyDetails3"
+                    >
+                      <div class="accordion-body p-0">
+                        <div class="d-flex justify-content-between mb-2">
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/battery_charging.svg"
+                                alt=""
+                                class="options-icon"
+                              />State of Charge :</span
+                            >
+                            <span class="history-value">&nbsp;67%</span>
+                          </div>
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/ev_station.svg"
+                                alt=""
+                                class="options-icon"
+                              />Type of Charging :</span
+                            >
+                            <span class="history-value">&nbsp;Public</span>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <span class="histroy-label"
+                              ><img
+                                src="../../../assets/images/schedule_FILL.svg"
+                                alt=""
+                                class="options-icon"
+                              />Date and Time of Charging :
+                            </span>
+                            <span class="history-value">&nbsp;07/03/2024</span>
+                          </div>
+                          <div>
+                            <div class="history-time">22:05</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="map-container">
+            <agm-map
+              [latitude]="markers[0].lat"
+              [longitude]="markers[0].lng"
+              [zoom]="zoomLevel"
+            >
+              <agm-marker
+                *ngFor="let marker of markers"
+                [latitude]="marker.lat"
+                [longitude]="marker.lng"
+                [iconUrl]="markerIconUrl"
+              ></agm-marker>
+            </agm-map>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

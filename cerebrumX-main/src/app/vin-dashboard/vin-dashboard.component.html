@@ -1,0 +1,157 @@
+<div class="dashboard-container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../../../assets/images/Dashboard.svg"
+          alt=""
+          class="dashboard-icon"
+        />Dashboard</a
+      >
+      <div class="navbar-brand" href="#">
+        <span class="vin-icon">VIN</span>VIN Eligibility
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Onboarding</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Documents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Signal Map</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-2">
+      <div class="side-panel">
+        <div class="side-panel-options">
+          <div
+            class="options"
+            (click)="section = 'vinSummary'"
+            [ngClass]="{ active: section == 'vinSummary' }"
+          >
+            <img
+              src="../../../assets/images/vin_summary.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">Vin Summary</span>
+          </div>
+          <div
+            class="options"
+            (click)="section = 'safety'"
+            [ngClass]="{ active: section == 'safety' }"
+          >
+            <img
+              src="../../../assets/images/health_and_safety.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">Safety</span>
+          </div>
+          <div
+            class="options"
+            (click)="section = 'sustainability'"
+            [ngClass]="{ active: section == 'sustainability' }"
+          >
+            <img
+              src="../../../assets/images/Sustainability.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">Sustainability</span>
+          </div>
+          <div
+            class="options"
+            (click)="section = 'maintenance'"
+            [ngClass]="{ active: section == 'maintenance' }"
+          >
+            <img
+              src="../../../assets/images/Maintenance.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">Maintenance</span>
+          </div>
+          <div
+            class="options"
+            (click)="section = 'tracking'"
+            [ngClass]="{ active: section == 'tracking' }"
+          >
+            <img
+              src="../../../assets/images/Tracking.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">Tracking</span>
+          </div>
+          <div
+            class="options"
+            (click)="section = 'compliance'"
+            [ngClass]="{ active: section == 'compliance' }"
+          >
+            <img
+              src="../../../assets/images/Compliance.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">Compliance</span>
+          </div>
+          <div
+            class="options"
+            (click)="section = 'tcoVin'"
+            [ngClass]="{ active: section == 'tcoVin' }"
+          >
+            <img
+              src="../../../assets/images/TCO_icon.svg"
+              alt=""
+              class="options-icon"
+            /><span class="options-text">TCO</span>
+          </div>
+          <div
+          class="options"
+          (click)="section = 'fleetDashboard'"
+          [ngClass]="{ active: section == 'fleetDashboard' }"
+        >
+          <img
+            src="../../../assets/images/TCO_icon.svg"
+            alt=""
+            class="options-icon"
+          /><span class="options-text">Dashboard</span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-10">
+      <ng-container *ngIf="section == 'safety'">
+        <app-safety-dashboard></app-safety-dashboard>
+      </ng-container>
+      <ng-container *ngIf="section == 'sustainability'">
+        <app-sustainability-dashboard></app-sustainability-dashboard>
+      </ng-container>
+      <ng-container *ngIf="section == 'tracking'">
+        <app-tracking-dashboard></app-tracking-dashboard>
+      </ng-container>
+      <ng-container *ngIf="section == 'maintenance'">
+        <app-maintenance-dashboard></app-maintenance-dashboard>
+      </ng-container>
+      <ng-container *ngIf="section == 'vinSummary'">
+        <app-vin-summary></app-vin-summary>
+      </ng-container>
+      <ng-container *ngIf="section == 'tcoVin'">
+        <app-tco-vin></app-tco-vin>
+      </ng-container>
+      <ng-container *ngIf="section == 'fleetDashboard'">
+        <app-fleet-dashboard></app-fleet-dashboard>
+      </ng-container>
+    </div>
+  </div>
+</div>

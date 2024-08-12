@@ -1,0 +1,45 @@
+<div class="card-container">
+    <div class="speed-parent">
+      <div *ngFor="let speed of speedArr" class="speed-value">
+        {{ speed }}
+      </div>
+    </div>
+    <div id="chart">
+      <span class="direction"> 8* F </span>
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [plotOptions]="chartOptions.plotOptions"
+        [labels]="chartOptions.labels"
+        [colors]="chartOptions.colors"
+        [fill]="chartOptions.fill"
+        [legend]="chartOptions.legend"
+        [grid]="chartOptions.grid"
+      ></apx-chart>
+      <div class="clock-hand">
+        <img
+          src="../../assets/images/ClockHand.svg"
+          class="chart-card-header-logo"
+        />
+      </div>
+      <div class="clock-center"></div>
+      <span class="rpm-details">
+        MPH
+      </span>
+      <div class="speed-icon">
+        <img
+          src="../../assets/images/Fuel.svg"
+          class="progress-icon"
+        />
+      </div>
+      <div class="speed-progress-bar">
+        <div class="progress-start">E</div>
+        <div class="progress-strip active"></div>
+        <div class="progress-strip active"></div>
+        <div class="progress-strip active"></div>
+        <div class="progress-strip"></div>
+        <div class="progress-end">F</div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,55 @@
+#chart {
+  padding: 0 !important;
+  max-width: 450px;
+  min-height: 0px !important;
+  margin: 0px !important;
+}
+.cardTitle {
+  font-size: 16px;
+  color: #6c757e;
+}
+.vehicle-card:hover {
+  background-color: red;
+  color: white !important;
+  .cardTitle{
+    color: #fff;
+  }
+}
+.hover-green:hover{
+  background-color: #2CA87F;
+}
+.hover-orange:hover{
+  background-color: #FA751A;
+}
+.hover-pink:hover{
+  background-color: #FF8080;
+}
+.hover-red:hover{
+  background-color: #FF0000;
+}
+.cardBorder {
+  border-block-color: #e7eaee;
+  height: 8rem;
+}
+.vehicle-card{
+  height: 130px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.valueStyle {
+  font-size: 40px;
+  padding-top: 4.5%;
+}
+
+.customContainer {
+  padding: 2.5% 2.5% 0% 2.5%;
+  background-color: #f5f7fc;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  padding-bottom: 1%;
+}

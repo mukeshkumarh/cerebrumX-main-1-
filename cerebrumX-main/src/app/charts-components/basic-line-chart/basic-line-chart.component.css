@@ -1,0 +1,29 @@
+.total-number{
+    font-size: 40px;
+    font-weight: 500;
+}
+.total-percentage{
+    float: right;
+}
+.total-percentage-1{
+    padding-left: 2rem;
+    color: #2CA87F;
+    font-size:20px;
+    font-weight: 500;
+}
+/* .total-percentage-2::before{
+    content: "\a";
+    white-space: pre;
+    
+} */
+
+.total-percentage-2{
+
+    display: block;
+    color: #6C757E !important;
+    font-size:16px;
+}
+
+.arrow_box{
+    text-align: center;
+}

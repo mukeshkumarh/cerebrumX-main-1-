@@ -1,0 +1,287 @@
+<div class="dashboard-container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-vehicle-summary></app-vehicle-summary>
+    </div>
+    <div class="col-md-12">
+      <div class="chart-section">
+        <div class="section-heading">TRIP SUMMARY</div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/TotalTrips.svg"
+                  class="chart-card-header-logo"
+                />Total Trips
+                <span class="chart-card-header-link">View More</span>
+              </div>
+              <div class="chart-card-body">
+                <app-basic-line-chart
+                  [chartData]="chartData.totalTripsData"
+                ></app-basic-line-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/TotalMiles.svg"
+                  class="chart-card-header-logo"
+                />Total Miles Driven
+                <span class="chart-card-header-link">View More</span>
+              </div>
+              <div class="chart-card-body">
+                <app-basic-line-chart
+                  [chartData]="chartData.totalMilesDrivenData"
+                ></app-basic-line-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/TotalMiles.svg"
+                  class="chart-card-header-logo"
+                />Total Driving Hours
+                <span class="chart-card-header-link">View More</span>
+              </div>
+              <div class="chart-card-body">
+                <app-basic-line-chart
+                  [chartData]="chartData.totalDrivingHoursData"
+                ></app-basic-line-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="chart-section">
+        <div class="section-heading">FLEET HEALTH</div>
+        <div class="tile-section">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="btn-tile hover-green">
+                <div class="btn-tile-text">View Details</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="btn-tile hover-orange">
+                <div class="btn-tile-text">Mileage Insights</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="btn-tile hover-blue">
+                <div class="btn-tile-text">Fuel Insights</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/VehicleAlerts.svg"
+                  class="chart-card-header-logo"
+                />
+                Vehicle Alerts
+                <span class="chart-card-header-link">View More</span>
+              </div>
+              <div class="chart-card-body">
+                <app-bar-category-chart
+                  [chartData]="chartData.vehicleAlertData"
+                ></app-bar-category-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/FleetMileage.svg"
+                  class="chart-card-header-logo"
+                />Fleet Mileage
+                <span class="chart-card-header-past-months">Last 6 Months</span>
+              </div>
+              <div class="chart-card-body">
+                <app-basic-line-chart
+                  [chartData]="chartData.fleetMileageData"
+                ></app-basic-line-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/FuelConsumed.svg"
+                  class="chart-card-header-logo"
+                />
+                Fuel Consumed
+                <span class="chart-card-sub-header">(Gallons)</span>
+                <span class="chart-card-header-past-months">Last 6 Months</span>
+              </div>
+              <div class="chart-card-body">
+                <app-dist-column-chart
+                  [chartData]="chartData.fuelConsumedData"
+                ></app-dist-column-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="chart-section">
+        <div class="section-heading">DRIVER SAFETY</div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/DriverScorecard.svg"
+                  class="chart-card-header-logo"
+                />Driver Scorecard
+              </div>
+              <div class="chart-card-body">
+                <app-donut-chart
+                  [chartData]="chartData.driverScoreCardData"
+                ></app-donut-chart>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/AggressiveDriver.svg"
+                  class="chart-card-header-logo"
+                />Top 5 Aggresive Drivers
+                <span class="chart-card-header-link">View More</span>
+              </div>
+              <div class="chart-card-body">
+                <app-basic-column-chart
+                  [chartData]="chartData.aggresiveDriversData"
+                ></app-basic-column-chart>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="btn-tile hover-blue mb-35">
+              <div class="btn-tile-text">Driver Insights</div>
+            </div>
+            <div class="chart-card card-with-tile">
+                <div class="chart-card-header">
+                  <img
+                    src="../../assets/images/Seatbelt.svg"
+                    class="chart-card-header-logo"
+                  />Top 5 Seatbelt Violations
+                  <span class="chart-card-header-link">View More</span>
+                </div>
+                <div class="chart-card-body">
+                  <app-dist-column-chart
+                    [chartData]="chartData.driverInsightsData"
+                  ></app-dist-column-chart>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="chart-section">
+          <div class="section-heading">OVERALL VEHICLE SPLIT</div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <img
+                    src="../../assets/images/ByMake.svg"
+                    class="chart-card-header-logo"
+                  />By Make
+                </div>
+                <div class="chart-card-body">
+                  <app-donut-chart
+                    [chartData]="chartData.byMakeCardData"
+                  ></app-donut-chart>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <img
+                    src="../../assets/images/byFuel.svg"
+                    class="chart-card-header-logo"
+                  />By Fuel
+                </div>
+                <div class="chart-card-body">
+                  <app-dist-column-chart
+                    [chartData]="chartData.byFuelData"
+                  ></app-dist-column-chart>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="chart-card">
+                <div class="chart-card-header">
+                  <img
+                    src="../../assets/images/ByBodyClass.svg"
+                    class="chart-card-header-logo"
+                  />By Body Class
+                </div>
+                <div class="chart-card-body">
+                  <app-multi-radial-chart
+                    [chartData]="chartData.byBodyClass"
+                  ></app-multi-radial-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-12">
+      <div class="chart-section">
+        <div class="section-heading">SUBSCRIBED PACKAGE</div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <img
+                  src="../../assets/images/Premium.svg"
+                  class="chart-card-header-logo"
+                />Premium
+                <img
+                  src="../../assets/images/Tick.svg"
+                  class="chart-card-header-logo float-end"
+                />
+              </div>
+              <div class="premium-card-body">
+                <div class="row">
+                  <div class="col-md-4"> <img
+                    src="../../assets/images/Tick.svg"
+                    class="chart-card-header-logo"
+                  />Basic</div>
+                  <div class="col-md-4"><img
+                    src="../../assets/images/Tick.svg"
+                    class="chart-card-header-logo"
+                  />Advance</div>
+                  <div class="col-md-4"><img
+                    src="../../assets/images/Tick.svg"
+                    class="chart-card-header-logo"
+                  />Premium</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    </div>
+  </div>
+</div>

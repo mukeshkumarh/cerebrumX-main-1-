@@ -1,0 +1,81 @@
+.tirp-container {
+  padding: 40px;
+  background-color: #f5f7fc;
+}
+.btn-tile {
+  height: 100px;
+  background-color: #fff;
+  border-radius: 12px;
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+  display: grid;
+  position: relative;
+  font-weight: 700;
+}
+.tile-heading {
+  font-size: 12px;
+  border-bottom: 1px solid #e7eaee;
+  margin-right: 20px;
+  padding-bottom: 6px;
+}
+.tile-value {
+  font-size: 20px;
+}
+.belt-tile-value {
+  font-size: 20px;
+  color: #ff0000;
+}
+.tile-icon {
+  padding-left: 20px;
+  padding-top: 10px;
+  img {
+    height: 50px;
+  }
+}
+
+.tyre {
+  font-size: 10px;
+}
+
+.tyre-1 {
+  position: absolute;
+  right: 136px;
+  top: 18px;
+}
+.tyre-2 {
+  position: absolute;
+  right: 57px;
+  top: 18px;
+}
+.tyre-3 {
+  position: absolute;
+  right: 136px;
+  top: 62px;
+}
+.tyre-4 {
+  position: absolute;
+  right: 57px;
+  top: 62px;
+}
+
+.map-container {
+  height: 100%;
+}
+agm-map {
+  height: 600px;
+}
+.disp-flex {
+  display: flex;
+  padding-top: 75px;
+  justify-content: space-around;
+  align-items: center;
+}
+.cards-background {
+  background-image: url("../../assets/images/Union.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  max-width: 100%;
+  height: 575px;
+}

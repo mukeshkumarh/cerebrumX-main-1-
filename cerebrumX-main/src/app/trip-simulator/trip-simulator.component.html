@@ -1,0 +1,103 @@
+<div class="tirp-container">
+
+  <div class="cards-background">
+    <div class="disp-flex">
+      <div class="" style="padding-left: 70px;">
+        <app-speedometer-chart [data]="speedObj"></app-speedometer-chart>
+      </div>
+      <div class="">
+        <app-distance-chart [data]="distanceObj"></app-distance-chart>
+      </div>
+      <div class="" style="padding-right: 70px;">
+        <app-speedometer-chart [data]="fuelObj"></app-speedometer-chart>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tile Section -->
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="btn-tile hover-green">
+        <div class="btn-tile-text">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="tile-icon">
+                <img
+                  src="../../assets/images/Compass.svg"
+                  class="chart-card-header-logo"
+                />
+              </div>
+            </div>
+            <div class="col-md-9" style="margin-top: 11px; text-align: left">
+              <div class="tile-heading">Latitude & Longitude</div>
+              <div class="tile-value">32.21495 - 134.17479</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-tile hover-orange">
+        <div class="btn-tile-text">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="tile-icon">
+                <img
+                  src="../../assets/images/Tyre.svg"
+                  class="chart-card-header-logo"
+                />
+              </div>
+            </div>
+            <div class="col-md-3" style="margin-top: 11px; text-align: left">
+              <div class="tile-heading border-0">Tire Pressure</div>
+            </div>
+            <div class="col-md-6">
+              <div class="car-tyre-section">
+                <span class="tyre tyre-1">30 PSI</span>
+                <span class="tyre tyre-2">29 PSI</span>
+                <span class="tyre tyre-3">27 PSI</span>
+                <span class="tyre tyre-4">30 PSI</span>
+                <div class="tyre-icon">
+                  <img
+                    src="../../assets/images/CarTyre.svg"
+                    class="chart-card-header-logo"
+                    style="height: 64px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-tile hover-orange">
+        <div class="btn-tile-text">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="tile-icon">
+                <img
+                  src="../../assets/images/Belt.svg"
+                  class="chart-card-header-logo"
+                />
+              </div>
+            </div>
+            <div class="col-md-9" style="margin-top: 11px; text-align: left">
+              <div class="tile-heading">Seatbelt Status</div>
+              <div class="belt-tile-value">Detached</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Maps Section -->
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="map-container">
+        <app-map></app-map>
+      </div>
+    </div>
+  </div>
+</div>

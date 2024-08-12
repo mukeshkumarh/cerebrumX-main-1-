@@ -1,0 +1,27 @@
+.chartTop {
+  float: right;
+  font-size: 15px;
+  color: #6c757e;
+}
+.rowWidth {
+  width: 80%;
+  margin-left: 9%;
+  margin-bottom: -6%;
+}
+.LegendIcon {
+  width: 6.5%;
+  padding-right: 2%;
+  margin-bottom: 2%;
+}
+.chartLegend {
+  margin-left: 5%;
+}
+
+.legendItem {
+  font-size: 14px;
+}
+.legend-line-break {
+  content: "\n"; /* adjust character as needed */
+}
+
+

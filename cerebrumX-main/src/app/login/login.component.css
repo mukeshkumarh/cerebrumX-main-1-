@@ -1,0 +1,71 @@
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-img{
+    background-color: gray;
+}
+
+.card-container {
+  height: 100vh;
+}
+.middle-card {
+    border-radius: 16px;
+  width: 25rem;
+}
+
+.card-logo {
+  justify-content: center;
+  display: flex;
+}
+
+.logo-img {
+    padding-top: 3%;
+  width: 40%;
+}
+
+.logo-description {
+  padding-top: 2%;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.sub-description {
+  padding-top: 1%;
+  color: grey;
+}
+
+.input-box {
+  height: 3rem;
+  border-color: #e6e5e5;
+}
+.input-box::placeholder {
+  color: grey;
+}
+.forgot-password {
+  font-weight: 600;
+  font-size: 12px;
+  color: rgb(251, 163, 0);
+  text-decoration: underline;
+  padding: 2.5% 0;
+}
+
+.form-buttons {
+  width: inherit;
+  height: 2.5rem;
+}
+
+.login-button {
+  background-color: #34bc34;
+  border: none;
+  color: white;
+  font-size: 12px;
+}
+.create-account {
+  border: #34bc34 2px solid;
+  background-color: white;
+  color: #34bc34;
+  font-size: 12px;
+}

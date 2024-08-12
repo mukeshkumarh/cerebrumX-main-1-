@@ -1,0 +1,84 @@
+.custom-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+    margin-bottom: 10px; 
+  }
+  
+  .legend-text {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 2px; 
+    font-family: Poppins;
+  }
+  
+  .legend-marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .legend-value {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 18px; 
+    margin-top: -2px; 
+    font-family: Poppins;
+  }
+  
+
+
+  :root {
+    --chart-height: 150px; /* Default value */
+  }
+  
+  .chart-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .custom-circle {
+    position: absolute;
+    top: 45%;
+    left: 50.2%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, transparent 60%, #F6F6F6 31%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0px solid #F6F6F6;
+    z-index: 2;
+  }
+  
+  .center-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .center-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .center-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+  }
+  
+  

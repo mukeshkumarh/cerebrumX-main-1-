@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div *ngIf="chartData.totalNumber"> -->
+  <div>
+    <div class="pt-2" *ngIf="this.chartData.totalNumber">
+      <span class="total-number">{{chartData.totalNumber}}</span><span>(Hrs:Min)</span>
+     
+    </div>
+  </div>
+  
+  <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [plotOptions]="chartOptions.plotOptions"
+        [title]="chartOptions.title"
+        [labels]="chartOptions.labels"
+        [dataLabels]="chartOptions.dataLabels"
+        [grid]="chartOptions.grid"
+        [stroke]="chartOptions.stroke"
+        [tooltip]="chartOptions.tooltip"
+        [yaxis]="chartOptions.yaxis"
+        [fill]="chartOptions.fill"
+        [colors]="chartOptions.colors"
+        [markers]="chartOptions.markers"
+        [legend]="chartOptions.legend"
+      ></apx-chart>
+    </div>
+    
